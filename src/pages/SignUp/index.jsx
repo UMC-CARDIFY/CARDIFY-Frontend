@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import hiddenEye from '../../assets/Images/HiddenEye.png';
+import showEye from '../../assets/Images/ShowEye.png';
 
 const Body = styled.div`
 display: flex;
@@ -49,8 +51,9 @@ color: #000;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
+margin-top: 1.5rem;
 `;
 
 const Input = styled.input`
@@ -66,9 +69,8 @@ background: #FFF;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
-margin-bottom: 1.6rem;
 box-sizing: border-box;
 &::placeholder {
     color: var(--B1B1B1, #B1B1B1);
@@ -105,32 +107,31 @@ const TabletPasswordCheckInput = styled(TabletInput)`
 margin-bottom: 0;
 `;
 
-const PWeye = styled.div`
+const PWDiv = styled.div`
     display: flex;
-    position: absolute;
-    right: 1rem;
-    top: 17.5rem;
-    `;
-const PWCheckeye = styled.div`
-    display: flex;
-    position: absolute;
-    right: 1rem;
-    top: 24.6rem;
+    position: relative;
+    align-items: center;
     `;
 
-const ShowEye = styled(AiFillEye)`
-width: 1.5rem;
-height: 1.5rem;
-    &:hover {
+const EyeDiv = styled.div`
+    display: flex;
+    position: absolute;
+    right: 1rem;
+        &:hover {
         cursor: pointer;
         }
     `;
-const HiddenEye = styled(AiFillEyeInvisible)`
-width: 1.5rem;
-height: 1.5rem;
-    &:hover {
-        cursor: pointer;
-        }
+
+const ShowEye = styled.div`
+background-image: url(${showEye});
+background-size: cover;
+    background-position: center;
+    width: 1.4rem;
+    height: 1.4rem;
+
+    `;
+const HiddenEye = styled(ShowEye)`
+background-image: url(${hiddenEye});
     `;
 
 const SignUpDiv = styled.div`
@@ -149,7 +150,7 @@ display: flex;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
     `;
 
@@ -175,7 +176,7 @@ text-decoration-line: underline;
     font-family: Pretendard;
     font-size: 1rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: normal;
     &:hover {
         cursor: pointer;
@@ -221,17 +222,24 @@ export const SignUp = () => {
             <InputText>이메일 *</InputText>
             <Input type="email" placeholder="cardify@example.com"></Input>
             <InputText>비밀번호 *</InputText>
+            <PWDiv>
             <PasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
-            </PasswordInput> 
-            {passwordVisible? <PWeye><ShowEye onClick={()=>clickPasswordVisible()}/></PWeye> : 
-            <PWeye><HiddenEye onClick={()=>clickPasswordVisible()}/></PWeye>
+            </PasswordInput>
+            <EyeDiv>
+            {passwordVisible? <ShowEye onClick={()=>clickPasswordVisible()}></ShowEye> :
+            <HiddenEye onClick={()=>clickPasswordVisible()}></HiddenEye>
             }
+            </EyeDiv>
+            </PWDiv>
+            
             <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
             <PasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
             </PasswordCheckInput>
-            {passwordCheckVisible? <PWCheckeye><ShowEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye> :
-            <PWCheckeye><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye>
+            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
             }
+            </PWDiv>
 
             <SignUpDiv>
                 <AgreeText>
@@ -257,17 +265,21 @@ export const SignUp = () => {
             <InputText>이메일 *</InputText>
             <LaptopInput type="email" placeholder="cardify@example.com"></LaptopInput>
             <InputText>비밀번호 *</InputText>
+            <PWDiv>
             <LaptopPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
             </LaptopPasswordInput>
-            {passwordVisible? <PWeye><ShowEye onClick={()=>clickPasswordVisible()}/></PWeye> :
-            <PWeye><HiddenEye onClick={()=>clickPasswordVisible()}/></PWeye>
+            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
             }
+            </PWDiv>
             <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
             <LaptopPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
             </LaptopPasswordCheckInput>
-            {passwordCheckVisible?  <PWCheckeye><ShowEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye> :
-            <PWCheckeye><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye>
+            {passwordCheckVisible?  <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
             }
+            </PWDiv>
                         <SignUpDiv>
                 <AgreeText>
                     <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
@@ -292,17 +304,21 @@ export const SignUp = () => {
             <InputText>이메일 *</InputText>
             <TabletInput type="email" placeholder="cardify@example.com"></TabletInput>
             <InputText>비밀번호 *</InputText>
+            <PWDiv>
             <TabletPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
             </TabletPasswordInput>
-            {passwordVisible? <PWeye><ShowEye onClick={()=>clickPasswordVisible()}/></PWeye> :
-            <PWeye><HiddenEye onClick={()=>clickPasswordVisible()}/></PWeye>
+            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
             }
+            </PWDiv>
             <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
             <TabletPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
             </TabletPasswordCheckInput>
-            {passwordCheckVisible? <PWCheckeye><ShowEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye> :
-            <PWCheckeye><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></PWCheckeye>
+            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
             }
+            </PWDiv>
                         <SignUpDiv>
                 <AgreeText>
                     <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>

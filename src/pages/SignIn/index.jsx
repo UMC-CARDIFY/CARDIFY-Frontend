@@ -81,7 +81,7 @@ flex: 1 0 0;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
 
 &::placeholder {
@@ -124,7 +124,7 @@ background: #FFF;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
 &:hover {
     cursor: pointer;
@@ -158,7 +158,7 @@ const SignUpText = styled.p`
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
 margin-right: 0.75rem;
     `;
@@ -169,7 +169,7 @@ margin-right: 0.75rem;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 400;
 line-height: normal;
 &:hover {
     cursor: pointer;
