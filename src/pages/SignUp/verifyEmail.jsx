@@ -3,6 +3,91 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 
+    export const VerifyEmail = () => {
+    const navigate = useNavigate();
+    
+    const resendEmail = () => {
+        // 인증 메일 재발송
+    }
+
+    const completeSignUp = () => {
+        navigate('/signup/complete');
+    }
+
+    return (
+        <>
+        <Desktop>
+        <Body>
+        <Container>
+        <Logo></Logo>
+        <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <EmailText>email@example.com</EmailText>
+            <p>로 인증 확인 이메일을 보냈어요.</p>
+            </div>
+            <p>
+            이메일을 확인하고, 회원가입을 완료해 주세요.
+            </p>
+        </GuideText>
+
+        <ButtonBox>
+            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
+            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
+        </ButtonBox>
+
+        </Container>
+        </Body>
+        </Desktop>
+
+        <Laptop>
+        <Body>
+        <LaptopContainer>
+        <LaptopLogo></LaptopLogo>
+        <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <EmailText>email@example.com</EmailText>
+            <p>로 인증 확인 이메일을 보냈어요.</p>
+            </div>
+            <p>
+            이메일을 확인하고, 회원가입을 완료해 주세요.
+            </p>
+        </GuideText>
+
+        <ButtonBox>
+            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
+            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
+        </ButtonBox>
+        </LaptopContainer>
+        </Body>
+        </Laptop>
+
+        <Tablet>
+        <Body>
+        <TabletContainer>
+        <TabletLogo></TabletLogo>
+        <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <EmailText>email@example.com</EmailText>
+            <p>로 인증 확인 이메일을 보냈어요.</p>
+            </div>
+            <p>
+            이메일을 확인하고, 회원가입을 완료해 주세요.
+            </p>
+        </GuideText>
+
+        <ButtonBox>
+            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
+            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
+        </ButtonBox>
+        </TabletContainer>
+        </Body>
+        </Tablet>
+        </>
+    )
+}
+
+export default VerifyEmail;
+
 const Body = styled.div`
 display: flex;
 width: 100vw;
@@ -89,88 +174,3 @@ border: none;
         cursor: pointer;
         }
         `;
-
-    export const VerifyEmail = () => {
-    const navigate = useNavigate();
-    
-    const resendEmail = () => {
-        // 인증 메일 재발송
-    }
-
-    const completeSignUp = () => {
-        navigate('/signup/complete');
-    }
-
-    return (
-        <>
-        <Desktop>
-        <Body>
-        <Container>
-        <Logo></Logo>
-        <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <EmailText>email@example.com</EmailText>
-            <p>로 인증 확인 이메일을 보냈어요.</p>
-            </div>
-            <p>
-            이메일을 확인하고, 회원가입을 완료해 주세요.
-            </p>
-        </GuideText>
-
-        <ButtonBox>
-            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
-            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
-        </ButtonBox>
-
-        </Container>
-        </Body>
-        </Desktop>
-
-        <Laptop>
-        <Body>
-        <LaptopContainer>
-        <LaptopLogo></LaptopLogo>
-        <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <EmailText>email@example.com</EmailText>
-            <p>로 인증 확인 이메일을 보냈어요.</p>
-            </div>
-            <p>
-            이메일을 확인하고, 회원가입을 완료해 주세요.
-            </p>
-        </GuideText>
-
-        <ButtonBox>
-            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
-            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
-        </ButtonBox>
-        </LaptopContainer>
-        </Body>
-        </Laptop>
-
-        <Tablet>
-        <Body>
-        <TabletContainer>
-        <TabletLogo></TabletLogo>
-        <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <EmailText>email@example.com</EmailText>
-            <p>로 인증 확인 이메일을 보냈어요.</p>
-            </div>
-            <p>
-            이메일을 확인하고, 회원가입을 완료해 주세요.
-            </p>
-        </GuideText>
-
-        <ButtonBox>
-            <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
-            <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
-        </ButtonBox>
-        </TabletContainer>
-        </Body>
-        </Tablet>
-        </>
-    )
-}
-
-export default VerifyEmail;

@@ -3,6 +3,85 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 
+    export const CompleteSignUp = () => {
+    const navigate = useNavigate();
+    
+    const startStudy = () => {
+        // 학습 시작하기 버튼 클릭
+    }
+
+    return (
+        <>
+        <Desktop>
+        <Body>
+        <Container>
+        <Logo>
+        </Logo>
+        <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <Name>가입한 이름</Name>
+            <p>님, 회원 가입을 축하드립니다!</p>
+            </div>
+            <p>
+            지금 바로 카디파이의 다양한 서비스를 만나보세요.
+            </p>
+        </GuideText>
+
+        <ButtonBox>
+            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
+        </ButtonBox>
+
+        </Container>
+        </Body>
+        </Desktop>
+
+        <Laptop>
+        <Body>
+        <LaptopContainer>
+            <LaptopLogo></LaptopLogo>
+            <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <Name>가입한 이름</Name>
+            <p>님, 회원 가입을 축하드립니다!</p>
+            </div>
+            <p>
+            지금 바로 카디파이의 다양한 서비스를 만나보세요.
+            </p>
+        </GuideText>
+
+        <ButtonBox>
+            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
+        </ButtonBox>
+        </LaptopContainer>
+        </Body>
+        </Laptop>
+
+        <Tablet>
+        <Body>
+        <TabletContainer>
+            <TabletLogo></TabletLogo>
+            <GuideText>
+            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
+            <Name>가입한 이름</Name>
+            <p>님, 회원 가입을 축하드립니다!</p>
+            </div>
+            <p>
+            지금 바로 카디파이의 다양한 서비스를 만나보세요.
+            </p>
+        </GuideText>
+        <ButtonBox>
+            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
+        </ButtonBox>
+        </TabletContainer>
+        </Body>
+        </Tablet>
+
+        </>
+    )
+}
+
+export default CompleteSignUp;
+
 const Body = styled.div`
 display: flex;
 width: 100vw;
@@ -85,83 +164,3 @@ border: none;
         cursor: pointer;
         }
         `;
-
-        export const CompleteSignUp = () => {
-    const navigate = useNavigate();
-    
-    const startStudy = () => {
-        // 학습 시작하기 버튼 클릭
-    }
-
-
-    return (
-        <>
-        <Desktop>
-        <Body>
-        <Container>
-        <Logo>
-        </Logo>
-        <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <Name>가입한 이름</Name>
-            <p>님, 회원 가입을 축하드립니다!</p>
-            </div>
-            <p>
-            지금 바로 카디파이의 다양한 서비스를 만나보세요.
-            </p>
-        </GuideText>
-
-        <ButtonBox>
-            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
-        </ButtonBox>
-
-        </Container>
-        </Body>
-        </Desktop>
-
-        <Laptop>
-        <Body>
-        <LaptopContainer>
-            <LaptopLogo></LaptopLogo>
-            <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <Name>가입한 이름</Name>
-            <p>님, 회원 가입을 축하드립니다!</p>
-            </div>
-            <p>
-            지금 바로 카디파이의 다양한 서비스를 만나보세요.
-            </p>
-        </GuideText>
-
-        <ButtonBox>
-            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
-        </ButtonBox>
-        </LaptopContainer>
-        </Body>
-        </Laptop>
-
-        <Tablet>
-        <Body>
-        <TabletContainer>
-            <TabletLogo></TabletLogo>
-            <GuideText>
-            <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
-            <Name>가입한 이름</Name>
-            <p>님, 회원 가입을 축하드립니다!</p>
-            </div>
-            <p>
-            지금 바로 카디파이의 다양한 서비스를 만나보세요.
-            </p>
-        </GuideText>
-        <ButtonBox>
-            <Button onClick={()=>startStudy()}>학습 시작하기</Button>
-        </ButtonBox>
-        </TabletContainer>
-        </Body>
-        </Tablet>
-
-        </>
-    )
-}
-
-export default CompleteSignUp;

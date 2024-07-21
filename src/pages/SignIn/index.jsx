@@ -2,6 +2,94 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 
+    export const SignIn = () => {
+
+    const navigate = useNavigate();
+
+    let isLoginAvailable = false;
+
+    const handleSignIn = () => {
+        if (isLoginAvailable) {
+            alert('로그인 성공');
+        }
+    }
+
+    return (
+        <>
+        <Desktop>
+        <Body>
+        <Container>
+            <Logo></Logo>
+            <SignInBox>
+            <InputBox>
+            <EmailInput placeholder='이메일을 입력해주세요.' />
+            <PasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
+            </InputBox>
+            <SignInButton onClick={()=>handleSignIn()}>로그인</SignInButton>
+            </SignInBox>
+
+            <SignUpDiv>
+                <SignUpText>아직 계정이 없으신가요?</SignUpText>
+                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
+            </SignUpDiv>
+
+            <KakaoSignInButton> <KakaoLogo></KakaoLogo>
+                카카오 로그인</KakaoSignInButton>
+        </Container>
+        </Body>
+        </Desktop>
+
+        <Laptop>
+        <Body>
+        <LaptopContainer>
+            <LaptopLogo></LaptopLogo>
+            <LaptopSignInBox>
+            <InputBox>
+            <TabletInput placeholder='이메일을 입력해주세요.' />
+            <TabletPasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
+            </InputBox>
+            <SignInButton onClick={()=>handleSignIn()}>로그인</SignInButton>
+            </LaptopSignInBox>
+
+            <LaptopSignUpDiv>
+                <SignUpText>아직 계정이 없으신가요?</SignUpText>
+                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
+            </LaptopSignUpDiv>
+
+            <LaptopKakaoSignInButton> <KakaoLogo></KakaoLogo>
+                카카오 로그인</LaptopKakaoSignInButton>
+        </LaptopContainer>
+        </Body>
+        </Laptop>
+
+        <Tablet>
+        <Body>
+        <TabletContainer>
+            <TabletLogo></TabletLogo>
+            <TabletSignInBox>
+            <InputBox>
+            <TabletInput placeholder='이메일을 입력해주세요.' />
+            <TabletPasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
+            </InputBox>
+            <TabletSignInButton onClick={()=>handleSignIn()}>로그인</TabletSignInButton>
+            </TabletSignInBox>
+
+            <TabletSignUpDiv>
+                <SignUpText>아직 계정이 없으신가요?</SignUpText>
+                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
+            </TabletSignUpDiv>
+
+            <TabletKakaoSignInButton> <KakaoLogo></KakaoLogo>
+                카카오 로그인</TabletKakaoSignInButton>
+        </TabletContainer>
+        </Body>
+        </Tablet>
+        </>
+    )
+}
+
+export default SignIn;
+
 const Body = styled.div`
 display: flex;
 width: 100vw;
@@ -205,91 +293,3 @@ width: var(--line-height-2xs, 1.25rem);
 height: var(--line-height-2xs, 1.25rem);
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
     `;
-
-    export const SignIn = () => {
-
-    const navigate = useNavigate();
-
-    let isLoginAvailable = false;
-
-    const handleSignIn = () => {
-        if (isLoginAvailable) {
-            alert('로그인 성공');
-        }
-    }
-
-    return (
-        <>
-        <Desktop>
-        <Body>
-        <Container>
-            <Logo></Logo>
-            <SignInBox>
-            <InputBox>
-            <EmailInput placeholder='이메일을 입력해주세요.' />
-            <PasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
-            </InputBox>
-            <SignInButton onClick={()=>handleSignIn()}>로그인</SignInButton>
-            </SignInBox>
-
-            <SignUpDiv>
-                <SignUpText>아직 계정이 없으신가요?</SignUpText>
-                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
-            </SignUpDiv>
-
-            <KakaoSignInButton> <KakaoLogo></KakaoLogo>
-                카카오 로그인</KakaoSignInButton>
-        </Container>
-        </Body>
-        </Desktop>
-
-        <Laptop>
-        <Body>
-        <LaptopContainer>
-            <LaptopLogo></LaptopLogo>
-            <LaptopSignInBox>
-            <InputBox>
-            <TabletInput placeholder='이메일을 입력해주세요.' />
-            <TabletPasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
-            </InputBox>
-            <SignInButton onClick={()=>handleSignIn()}>로그인</SignInButton>
-            </LaptopSignInBox>
-
-            <LaptopSignUpDiv>
-                <SignUpText>아직 계정이 없으신가요?</SignUpText>
-                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
-            </LaptopSignUpDiv>
-
-            <LaptopKakaoSignInButton> <KakaoLogo></KakaoLogo>
-                카카오 로그인</LaptopKakaoSignInButton>
-        </LaptopContainer>
-        </Body>
-        </Laptop>
-
-        <Tablet>
-        <Body>
-        <TabletContainer>
-            <TabletLogo></TabletLogo>
-            <TabletSignInBox>
-            <InputBox>
-            <TabletInput placeholder='이메일을 입력해주세요.' />
-            <TabletPasswordInput type='password' placeholder='비밀번호를 입력해주세요.' />
-            </InputBox>
-            <TabletSignInButton onClick={()=>handleSignIn()}>로그인</TabletSignInButton>
-            </TabletSignInBox>
-
-            <TabletSignUpDiv>
-                <SignUpText>아직 계정이 없으신가요?</SignUpText>
-                <SignUpLink onClick={()=>navigate('/signup')}>회원가입</SignUpLink>
-            </TabletSignUpDiv>
-
-            <TabletKakaoSignInButton> <KakaoLogo></KakaoLogo>
-                카카오 로그인</TabletKakaoSignInButton>
-        </TabletContainer>
-        </Body>
-        </Tablet>
-        </>
-    )
-}
-
-export default SignIn;

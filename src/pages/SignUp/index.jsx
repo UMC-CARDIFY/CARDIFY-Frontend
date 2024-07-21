@@ -6,6 +6,154 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import hiddenEye from '../../assets/Images/HiddenEye.png';
 import showEye from '../../assets/Images/ShowEye.png';
 
+export const SignUp = () => {
+    const navigate = useNavigate();
+
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [passwordCheckVisible, setPasswordCheckVisible] = useState(false);
+
+    const clickPasswordVisible = () => {
+        setPasswordVisible(!passwordVisible);
+    }
+    const clickPasswordCheckVisible = () => {
+        setPasswordCheckVisible(!passwordCheckVisible);
+    }
+
+    const clickVerify = () => {
+        // 입력 정보 유효성 검사하기
+
+        navigate('/signup/verify');
+        // 인증하기 버튼 클릭
+    }
+
+    return (
+        <>
+        <Desktop>
+        <Body>
+        <Container>
+            <SignUpBox>
+            <InputText>이름 *</InputText>
+            <Input type="text" placeholder="이름 입력"></Input>
+            <InputText>이메일 *</InputText>
+            <Input type="email" placeholder="cardify@example.com"></Input>
+            <InputText>비밀번호 *</InputText>
+            <PWDiv>
+            <PasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
+            </PasswordInput>
+            <EyeDiv>
+            {passwordVisible? <ShowEye onClick={()=>clickPasswordVisible()}></ShowEye> :
+            <HiddenEye onClick={()=>clickPasswordVisible()}></HiddenEye>
+            }
+            </EyeDiv>
+            </PWDiv>
+            
+            <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
+            <PasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
+            </PasswordCheckInput>
+            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
+            }
+            </PWDiv>
+
+            <SignUpDiv>
+                <AgreeText>
+                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
+                    <p>과 &nbsp;</p>
+                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
+                    <p>을 확인하고, 동의합니다.</p>
+                </AgreeText>
+            </SignUpDiv>
+
+            <VerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</VerifyButton>
+            </SignUpBox>
+        </Container>
+        </Body>
+        </Desktop>
+
+        <Laptop>
+        <Body>
+        <LaptopContainer>
+            <LaptopSignUpBox>
+            <InputText>이름 *</InputText>
+            <LaptopInput type="text" placeholder="이름 입력"></LaptopInput>
+            <InputText>이메일 *</InputText>
+            <LaptopInput type="email" placeholder="cardify@example.com"></LaptopInput>
+            <InputText>비밀번호 *</InputText>
+            <PWDiv>
+            <LaptopPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
+            </LaptopPasswordInput>
+            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
+            }
+            </PWDiv>
+            <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
+            <LaptopPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
+            </LaptopPasswordCheckInput>
+            {passwordCheckVisible?  <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
+            }
+            </PWDiv>
+                        <SignUpDiv>
+                <AgreeText>
+                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
+                    <p>과 &nbsp;</p>
+                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
+                    <p>을 확인하고, 동의합니다.</p>
+                </AgreeText>
+            </SignUpDiv>
+
+            <LaptopVerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</LaptopVerifyButton>
+            </LaptopSignUpBox>
+        </LaptopContainer>
+        </Body>
+        </Laptop>
+
+        <Tablet>
+        <Body>
+        <TabletContainer>
+            <TabletSignUpBox>
+            <InputText>이름 *</InputText>
+            <TabletInput type="text" placeholder="이름 입력"></TabletInput>
+            <InputText>이메일 *</InputText>
+            <TabletInput type="email" placeholder="cardify@example.com"></TabletInput>
+            <InputText>비밀번호 *</InputText>
+            <PWDiv>
+            <TabletPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
+            </TabletPasswordInput>
+            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
+            }
+            </PWDiv>
+            <InputText>비밀번호 확인 *</InputText>
+            <PWDiv>
+            <TabletPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
+            </TabletPasswordCheckInput>
+            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
+            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
+            }
+            </PWDiv>
+                        <SignUpDiv>
+                <AgreeText>
+                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
+                    <p>과 &nbsp;</p>
+                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
+                    <p>을 확인하고, 동의합니다.</p>
+                </AgreeText>
+            </SignUpDiv>
+
+            <TabletVerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</TabletVerifyButton>
+            </TabletSignUpBox>
+        </TabletContainer>
+        </Body>
+        </Tablet>
+        </>
+    )
+}
+
+export default SignUp;
+
 const Body = styled.div`
 display: flex;
 width: 100vw;
@@ -190,151 +338,3 @@ text-decoration-line: underline;
     const TabletVerifyButton = styled(VerifyButton)`
     width: 29rem;
     `;
-
-export const SignUp = () => {
-    const navigate = useNavigate();
-
-    const [passwordVisible, setPasswordVisible] = useState(false);
-    const [passwordCheckVisible, setPasswordCheckVisible] = useState(false);
-
-    const clickPasswordVisible = () => {
-        setPasswordVisible(!passwordVisible);
-    }
-    const clickPasswordCheckVisible = () => {
-        setPasswordCheckVisible(!passwordCheckVisible);
-    }
-
-    const clickVerify = () => {
-        // 입력 정보 유효성 검사하기
-
-        navigate('/signup/verify');
-        // 인증하기 버튼 클릭
-    }
-
-    return (
-        <>
-        <Desktop>
-        <Body>
-        <Container>
-            <SignUpBox>
-            <InputText>이름 *</InputText>
-            <Input type="text" placeholder="이름 입력"></Input>
-            <InputText>이메일 *</InputText>
-            <Input type="email" placeholder="cardify@example.com"></Input>
-            <InputText>비밀번호 *</InputText>
-            <PWDiv>
-            <PasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
-            </PasswordInput>
-            <EyeDiv>
-            {passwordVisible? <ShowEye onClick={()=>clickPasswordVisible()}></ShowEye> :
-            <HiddenEye onClick={()=>clickPasswordVisible()}></HiddenEye>
-            }
-            </EyeDiv>
-            </PWDiv>
-            
-            <InputText>비밀번호 확인 *</InputText>
-            <PWDiv>
-            <PasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
-            </PasswordCheckInput>
-            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
-            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
-            }
-            </PWDiv>
-
-            <SignUpDiv>
-                <AgreeText>
-                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
-                    <p>과 &nbsp;</p>
-                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
-                    <p>을 확인하고, 동의합니다.</p>
-                </AgreeText>
-            </SignUpDiv>
-
-            <VerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</VerifyButton>
-            </SignUpBox>
-        </Container>
-        </Body>
-        </Desktop>
-
-        <Laptop>
-        <Body>
-        <LaptopContainer>
-            <LaptopSignUpBox>
-            <InputText>이름 *</InputText>
-            <LaptopInput type="text" placeholder="이름 입력"></LaptopInput>
-            <InputText>이메일 *</InputText>
-            <LaptopInput type="email" placeholder="cardify@example.com"></LaptopInput>
-            <InputText>비밀번호 *</InputText>
-            <PWDiv>
-            <LaptopPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
-            </LaptopPasswordInput>
-            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
-            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
-            }
-            </PWDiv>
-            <InputText>비밀번호 확인 *</InputText>
-            <PWDiv>
-            <LaptopPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
-            </LaptopPasswordCheckInput>
-            {passwordCheckVisible?  <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
-            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
-            }
-            </PWDiv>
-                        <SignUpDiv>
-                <AgreeText>
-                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
-                    <p>과 &nbsp;</p>
-                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
-                    <p>을 확인하고, 동의합니다.</p>
-                </AgreeText>
-            </SignUpDiv>
-
-            <LaptopVerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</LaptopVerifyButton>
-            </LaptopSignUpBox>
-        </LaptopContainer>
-        </Body>
-        </Laptop>
-
-        <Tablet>
-        <Body>
-        <TabletContainer>
-            <TabletSignUpBox>
-            <InputText>이름 *</InputText>
-            <TabletInput type="text" placeholder="이름 입력"></TabletInput>
-            <InputText>이메일 *</InputText>
-            <TabletInput type="email" placeholder="cardify@example.com"></TabletInput>
-            <InputText>비밀번호 *</InputText>
-            <PWDiv>
-            <TabletPasswordInput type={passwordVisible? "text" : "password"} placeholder="비밀번호 입력">
-            </TabletPasswordInput>
-            {passwordVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordVisible()}/></EyeDiv> :
-            <EyeDiv><HiddenEye onClick={()=>clickPasswordVisible()}/></EyeDiv>
-            }
-            </PWDiv>
-            <InputText>비밀번호 확인 *</InputText>
-            <PWDiv>
-            <TabletPasswordCheckInput type={passwordCheckVisible? "text" : "password"} placeholder="비밀번호 확인">
-            </TabletPasswordCheckInput>
-            {passwordCheckVisible? <EyeDiv><ShowEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv> :
-            <EyeDiv><HiddenEye onClick={()=>clickPasswordCheckVisible()}/></EyeDiv>
-            }
-            </PWDiv>
-                        <SignUpDiv>
-                <AgreeText>
-                    <AgreeContent onClick={()=>navigate('/signup')}>이용약관</AgreeContent>
-                    <p>과 &nbsp;</p>
-                    <AgreeContent onClick={()=>navigate('/signup')}>개인정보취급방침</AgreeContent>
-                    <p>을 확인하고, 동의합니다.</p>
-                </AgreeText>
-            </SignUpDiv>
-
-            <TabletVerifyButton onClick={()=>clickVerify()}>동의하고 인증하기</TabletVerifyButton>
-            </TabletSignUpBox>
-        </TabletContainer>
-        </Body>
-        </Tablet>
-        </>
-    )
-}
-
-export default SignUp;
