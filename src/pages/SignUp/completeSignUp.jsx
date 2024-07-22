@@ -37,9 +37,10 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 
         <Laptop>
         <Body>
-        <LaptopContainer>
-            <LaptopLogo></LaptopLogo>
-            <GuideText>
+        <Container>
+        <Logo>
+        </Logo>
+        <GuideText>
             <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
             <Name>가입한 이름</Name>
             <p>님, 회원 가입을 축하드립니다!</p>
@@ -52,15 +53,17 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
         <ButtonBox>
             <Button onClick={()=>startStudy()}>학습 시작하기</Button>
         </ButtonBox>
-        </LaptopContainer>
+
+        </Container>
         </Body>
         </Laptop>
 
         <Tablet>
         <Body>
-        <TabletContainer>
-            <TabletLogo></TabletLogo>
-            <GuideText>
+        <Container>
+        <Logo>
+        </Logo>
+        <GuideText>
             <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
             <Name>가입한 이름</Name>
             <p>님, 회원 가입을 축하드립니다!</p>
@@ -69,10 +72,12 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
             지금 바로 카디파이의 다양한 서비스를 만나보세요.
             </p>
         </GuideText>
+
         <ButtonBox>
             <Button onClick={()=>startStudy()}>학습 시작하기</Button>
         </ButtonBox>
-        </TabletContainer>
+
+        </Container>
         </Body>
         </Tablet>
 
@@ -97,15 +102,15 @@ height: 47.5rem;
 flex-shrink: 0;
 background: #FFF;
 box-shadow: 0px 4px 26.7px 0px rgba(0, 0, 0, 0.02), 0px 10px 60px 0px rgba(0, 74, 162, 0.03);
-`
-const LaptopContainer = styled(Container)`
-width: 65rem;
-height: 45rem;
+@media (max-width: 1440px) {
+    width: 65rem;
+    height: 45rem;
+}
+@media (max-width: 1024px) {
+    width: 61rem;
+    height: 42.5rem;
+}
 `;
-const TabletContainer = styled(Container)`
-width: 61rem;
-height: 42.5rem;
-`
 
 const Logo = styled.div`
 width: 16.875rem;
@@ -115,14 +120,14 @@ border: 2px solid #000;
 background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 margin-top:14rem;
 margin-left : 27.56rem;
-`;
-const LaptopLogo = styled(Logo)`
+@media (max-width: 1440px) {
 margin-top: 12.8rem;
 margin-left: 24rem;
-`;
-const TabletLogo = styled(Logo)`
+}
+@media (max-width: 1024px) {
 margin-top: 11.5rem;
 margin-left: 22rem;
+}
 `;
 
 const GuideText = styled.div`

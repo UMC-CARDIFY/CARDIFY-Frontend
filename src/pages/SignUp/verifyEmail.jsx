@@ -41,8 +41,8 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
 
         <Laptop>
         <Body>
-        <LaptopContainer>
-        <LaptopLogo></LaptopLogo>
+        <Container>
+        <Logo></Logo>
         <GuideText>
             <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
             <EmailText>email@example.com</EmailText>
@@ -57,14 +57,15 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
             <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
             <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
         </ButtonBox>
-        </LaptopContainer>
+
+        </Container>
         </Body>
         </Laptop>
 
         <Tablet>
         <Body>
-        <TabletContainer>
-        <TabletLogo></TabletLogo>
+        <Container>
+        <Logo></Logo>
         <GuideText>
             <div style={{display:"flex",flexDirection:"row",marginBottom:"-1.2rem"}}>
             <EmailText>email@example.com</EmailText>
@@ -79,7 +80,8 @@ import { Desktop, Laptop, Tablet } from '../../styles/MediaQuery';
             <Button onClick={()=>resendEmail()}>인증 메일 재발송</Button>
             <Button onClick={()=>completeSignUp()}>회원가입 완료</Button>
         </ButtonBox>
-        </TabletContainer>
+
+        </Container>
         </Body>
         </Tablet>
         </>
@@ -103,16 +105,14 @@ height: 47.5rem;
 flex-shrink: 0;
 background: #FFF;
 box-shadow: 0px 4px 26.7px 0px rgba(0, 0, 0, 0.02), 0px 10px 60px 0px rgba(0, 74, 162, 0.03);
-`
-
-const LaptopContainer = styled(Container)`
-width: 65rem;
-height: 45rem;
-`;
-
-const TabletContainer = styled(Container)`
-width: 61rem;
-height: 42.5rem;
+@media (max-width: 1440px) {
+    width: 65rem;
+    height: 45rem;
+}
+@media (max-width: 1024px) {
+    width: 61rem;
+    height: 42.5rem;
+}
 `;
 
 const Logo = styled.div`
@@ -123,15 +123,14 @@ border: 2px solid #000;
 background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 margin-top:14rem;
 margin-left : 27.56rem;
-`;
-
-const LaptopLogo = styled(Logo)`
+@media (max-width: 1440px) {
 margin-top: 12.8rem;
 margin-left: 24rem;
-`;
-const TabletLogo = styled(Logo)`
+}
+@media (max-width: 1024px) {
 margin-top: 11.5rem;
 margin-left: 22rem;
+}
 `;
 
 const GuideText = styled.div`
