@@ -75,7 +75,6 @@ const ImageCard = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-  const [imageBase64, setImageBase64] = useState(null);
 
   const handleCardClick = () => {
     fileInputRef.current.click();
@@ -95,7 +94,6 @@ const ImageCard = () => {
       reader.onload = (e) => {
         const img = new Image();
         img.src = e.target.result;
-        setImageBase64(e.target.result.split(',')[1]); // Base64 문자열 저장
         img.onload = () => {
           setImage(img);
           setIsModalOpen(true);
@@ -154,7 +152,7 @@ const ImageCard = () => {
   };
 
   const handleSubmit = () => {
-    if (!imageFile || rectangles.length === 0 || !imageBase64) return;
+    if (!imageFile || rectangles.length === 0) return;
 
     const imageCard = {
       baseImageWidth: canvasRef.current.width,
@@ -167,16 +165,19 @@ const ImageCard = () => {
       })),
     };
 
-    const payload = {
-      image: imageBase64,
-      imageCard,
-    };
+    const formData = new FormData();
+    formData.append('image', imageFile);
+    formData.append('imageCard', JSON.stringify(imageCard));
 
-    console.log('Payload to be sent:', payload);
+    console.log('FormData to be sent:');
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
 
-    axios.post('http://3.37.13.40:8080/api/v1/cards/add/Image', payload, {
+    axios.post('/api/v1/cards/add/Image', formData, {
       headers: {
-        Authorization: 'YOUR_AUTH_TOKEN',
+        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsInR5cGUiOiJBY2Nlc3MiLCJzdWIiOiJBY2Nlc3NUb2tlbiIsImlhdCI6MTcyMjg0MzE1MywiZXhwIjoxNzIyODQ2NzUzfQ.mGA0KGXR5urRMyL4QA49UNArvYbGIOlh05-L2eluVow',
+        'Content-Type': 'multipart/form-data',
       },
     })
       .then((response) => {
@@ -189,15 +190,15 @@ const ImageCard = () => {
   };
 
   const handleLoadData = () => {
-    axios.get('http://3.37.13.40:8080/api/v1/cards/add/Image', {
+    axios.get('/api/v1/cards/add/Image', {
       headers: {
-        Authorization: 'YOUR_AUTH_TOKEN',
+        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsInR5cGUiOiJBY2Nlc3MiLCJzdWIiOiJBY2Nlc3NUb2tlbiIsImlhdCI6MTcyMjg0MzE1MywiZXhwIjoxNzIyODQ2NzUzfQ.mGA0KGXR5urRMyL4QA49UNArvYbGIOlh05-L2eluVow',
       },
     })
       .then((response) => {
         const data = response.data;
         const img = new Image();
-        img.src = `data:image/png;base64,${data.image}`;
+        img.src = data.imageUrl;
         img.onload = () => {
           setImage(img);
           setRectangles(data.imageCard.overlays);
